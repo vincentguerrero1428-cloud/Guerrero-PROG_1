@@ -1,0 +1,60 @@
+#include<stdio.h>
+
+float CalculateBmi(float weight, float height);
+void  CategorizeBmi(float BMI);
+
+    int main()
+{
+    float weight, height, BMI;
+
+    printf("\t======BODY MASS INDEX CHECKER======\n");
+    printf("\nEnter Weight (Kg): ");
+    scanf("%f", &weight);
+
+    printf("Enter Height (M): ");
+    scanf("%f", &height);
+
+
+    BMI= CalculateBmi(weight, height);
+
+    if(BMI<=0){
+        printf("\nINVALID WEIGHT OR HEIGHT!");
+            return 0;
+    }
+
+    CategorizeBmi(BMI);
+    
+    return 0;
+}
+
+float CalculateBmi(float weight, float height){
+      if(weight<=0 || height <=0){
+            return 0;
+      }
+      
+      else{  
+      float BMI = weight/(height*height);
+      printf("\nBMI: %.2f", BMI);
+            return BMI;
+      }
+
+}
+
+void CategorizeBmi(float BMI){
+    
+     if(BMI>=30){
+         printf("\nCategory: Obese");
+     }
+
+     else if(BMI>=25){
+         printf("\nCategory: Overweight");
+     }
+
+     else if(BMI>=18.5){
+         printf("\nCategory: Normal");
+     }
+
+     else{
+         printf("\nCategory: Underweight");
+     }
+}
